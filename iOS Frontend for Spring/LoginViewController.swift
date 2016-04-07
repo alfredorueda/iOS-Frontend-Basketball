@@ -19,30 +19,31 @@ class LoginViewController: UIViewController {
     }
 
     @IBAction func login(sender: UIButton) {
-        print(usernameText.text)
-        print(passwordText.text)
+        //let stringToBeEncoded = "username=admin&password=admin&grant_type=password&scope=read%20write&client_secret=mySecretOAuthSecret&client_id=basketballapp"
+        //print(stringToBeEncoded.toBase64())
         
-        performSegueWithIdentifier("ShowUserDetails", sender: nil)
+        let bodyHTTP = ["username"      : "\(usernameText.text!)",
+                        "password"      : "\(passwordText.text!)",
+                        "grant_type"    : "password",
+                        "scope"         : "read write",
+                        "client_secret" : "mySecretOAuthSecret",
+                        "client_id"     : "basketballapp"]
+        let headersRequest = ["Content-Type":"application/x-www-form-urlencoded"]
         
-        /*let bodyHTTP = ["user": "\(usernameText.text!)", "password": "\(usernameText.text!)"]
-        let headersRequest = ["":""]
-        
-        Alamofire.request(.POST, "http://172.16.155.36:8080", parameters: bodyHTTP, headers: headersRequest).responseJSON{ response in
+        Alamofire.request(.POST, "http://172.16.155.36:8080/oauth/token", parameters: bodyHTTP, headers: headersRequest).responseJSON{ response in
             switch response.result {
             case .Success (let JSON):
                 if let _ = JSON["error"]! {
                     print(JSON["error"])
                 } else {
                     print(JSON)
+                    self.performSegueWithIdentifier("ShowUserDetails", sender: nil)
                 }
             case .Failure (let error):
                 print("Request failed with error: \(error)")
             }
-        }*/
-        
-        
-        
-        
+        }
     }
 }
+
 

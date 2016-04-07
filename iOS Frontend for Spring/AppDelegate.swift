@@ -40,7 +40,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func applicationWillTerminate(application: UIApplication) {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     }
+}
 
-
+//Extension to encode in Base64
+extension String {
+    func toBase64()->String{
+        let data = self.dataUsingEncoding(NSUTF8StringEncoding)
+        return data!.base64EncodedStringWithOptions(NSDataBase64EncodingOptions(rawValue: 0))
+    }
 }
 
