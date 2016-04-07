@@ -18,8 +18,16 @@ class UserDetailsViewController: UIViewController {
     @IBOutlet weak var refreshToken: UILabel!
     @IBOutlet weak var expiresIn: UILabel!
     
+    let defaults = NSUserDefaults.standardUserDefaults()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        accessToken.text = (defaults.objectForKey("accessToken") as! String)
+        tokenType.text = (defaults.objectForKey("tokenType") as! String)
+        grantType.text = "nil"
+        scope.text = (defaults.objectForKey("scope") as! String)
+        refreshToken.text = (defaults.objectForKey("refreshToken") as! String)
+        expiresIn.text = (defaults.objectForKey("expiresIn") as! String)
     }
 
     @IBAction func showPlayerList(sender: UIButton) {

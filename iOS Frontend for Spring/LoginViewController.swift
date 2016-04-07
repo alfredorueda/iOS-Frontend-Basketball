@@ -41,6 +41,14 @@ class LoginViewController: UIViewController {
                         print("Scope: \(jsonAsDict["scope"] as! String)")
                         print("Token Type: \(jsonAsDict["token_type"] as! String)")
                         print("Expires in: \(jsonAsDict["expires_in"] as! Int)")
+                        
+                        
+                        self.defaults.setObject("\(jsonAsDict["access_token"] as! String)", forKey: "accessToken")
+                        self.defaults.setObject("\(jsonAsDict["refresh_token"] as! String)", forKey: "refreshToken")
+                        self.defaults.setObject("\(jsonAsDict["scope"] as! String)", forKey: "scope")
+                        self.defaults.setObject("\(jsonAsDict["token_type"] as! String)", forKey: "tokenType")
+                        self.defaults.setObject("\(jsonAsDict["expires_in"] as! Int)", forKey: "expiresIn")
+                        
                     }
                     self.performSegueWithIdentifier("ShowUserDetails", sender: nil)
                 }
