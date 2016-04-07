@@ -22,7 +22,9 @@ class LoginViewController: UIViewController {
         print(usernameText.text)
         print(passwordText.text)
         
-        let bodyHTTP = ["user": "\(usernameText.text!)", "password": "\(usernameText.text!)"]
+        performSegueWithIdentifier("ShowUserDetails", sender: nil)
+        
+        /*let bodyHTTP = ["user": "\(usernameText.text!)", "password": "\(usernameText.text!)"]
         let headersRequest = ["":""]
         
         Alamofire.request(.POST, "http://172.16.155.36:8080", parameters: bodyHTTP, headers: headersRequest).responseJSON{ response in
@@ -31,14 +33,12 @@ class LoginViewController: UIViewController {
                 if let _ = JSON["error"]! {
                     print(JSON["error"])
                 } else {
-                    if let _ = JSON as? [String:AnyObject] {
-                        print("The notifications for this challenge are ON")
-                    }
+                    print(JSON)
                 }
             case .Failure (let error):
                 print("Request failed with error: \(error)")
             }
-        }
+        }*/
         
         
         
