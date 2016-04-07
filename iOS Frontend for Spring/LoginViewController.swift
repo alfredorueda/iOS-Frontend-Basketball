@@ -14,14 +14,13 @@ class LoginViewController: UIViewController {
     @IBOutlet weak var usernameText: UITextField!
     @IBOutlet weak var passwordText: UITextField!
     
+    let defaults = NSUserDefaults.standardUserDefaults()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
     }
 
     @IBAction func login(sender: UIButton) {
-        //let stringToBeEncoded = "username=admin&password=admin&grant_type=password&scope=read%20write&client_secret=mySecretOAuthSecret&client_id=basketballapp"
-        //print(stringToBeEncoded.toBase64())
-        
         let bodyHTTP = ["username"      : "\(usernameText.text!)",
                         "password"      : "\(passwordText.text!)",
                         "grant_type"    : "password",
@@ -36,7 +35,13 @@ class LoginViewController: UIViewController {
                 if let _ = JSON["error"]! {
                     print(JSON["error"])
                 } else {
-                    print(JSON)
+                    if let jsonAsDict = JSON as? [String:AnyObject] {
+                        print("Access Token: \(jsonAsDict["access_token"] as! String)")
+                        print("Refresh Token: \(jsonAsDict["refresh_token"] as! String)")
+                        print("Scope: \(jsonAsDict["scope"] as! String)")
+                        print("Token Type: \(jsonAsDict["token_type"] as! String)")
+                        print("Expires in: \(jsonAsDict["expires_in"] as! Int)")
+                    }
                     self.performSegueWithIdentifier("ShowUserDetails", sender: nil)
                 }
             case .Failure (let error):
