@@ -13,6 +13,7 @@
 		4750CB331C9B13D600ADE58D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4750CB311C9B13D600ADE58D /* Main.storyboard */; };
 		4750CB351C9B13D600ADE58D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4750CB341C9B13D600ADE58D /* Assets.xcassets */; };
 		4750CB381C9B13D600ADE58D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4750CB361C9B13D600ADE58D /* LaunchScreen.storyboard */; };
+		4751F7291CB6DCC2007C9A9C /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4751F7281CB6DCC2007C9A9C /* Player.swift */; };
 		47C7468D1C9B170A00E978DD /* UserDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47C7468C1C9B170A00E978DD /* UserDetailsViewController.swift */; };
 		47C7468F1C9B175800E978DD /* PlayerListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47C7468E1C9B175800E978DD /* PlayerListViewController.swift */; };
 		47C746911C9B17BE00E978DD /* PlayerDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47C746901C9B17BE00E978DD /* PlayerDetailsViewController.swift */; };
@@ -27,6 +28,7 @@
 		4750CB341C9B13D600ADE58D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		4750CB371C9B13D600ADE58D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		4750CB391C9B13D600ADE58D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		4751F7281CB6DCC2007C9A9C /* Player.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Player.swift; sourceTree = "<group>"; };
 		47C7468C1C9B170A00E978DD /* UserDetailsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserDetailsViewController.swift; sourceTree = "<group>"; };
 		47C7468E1C9B175800E978DD /* PlayerListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlayerListViewController.swift; sourceTree = "<group>"; };
 		47C746901C9B17BE00E978DD /* PlayerDetailsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlayerDetailsViewController.swift; sourceTree = "<group>"; };
@@ -79,17 +81,34 @@
 			isa = PBXGroup;
 			children = (
 				4750CB2D1C9B13D600ADE58D /* AppDelegate.swift */,
+				4751F7261CB6DCA7007C9A9C /* Models */,
+				4751F7271CB6DCAF007C9A9C /* Cells */,
 				4750CB2F1C9B13D600ADE58D /* LoginViewController.swift */,
 				47C7468C1C9B170A00E978DD /* UserDetailsViewController.swift */,
 				47C7468E1C9B175800E978DD /* PlayerListViewController.swift */,
 				47C746901C9B17BE00E978DD /* PlayerDetailsViewController.swift */,
 				4750CB311C9B13D600ADE58D /* Main.storyboard */,
-				47C746921C9B199600E978DD /* PlayersCell.swift */,
 				4750CB341C9B13D600ADE58D /* Assets.xcassets */,
 				4750CB361C9B13D600ADE58D /* LaunchScreen.storyboard */,
 				4750CB391C9B13D600ADE58D /* Info.plist */,
 			);
 			path = "iOS Frontend for Spring";
+			sourceTree = "<group>";
+		};
+		4751F7261CB6DCA7007C9A9C /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				4751F7281CB6DCC2007C9A9C /* Player.swift */,
+			);
+			name = Models;
+			sourceTree = "<group>";
+		};
+		4751F7271CB6DCAF007C9A9C /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				47C746921C9B199600E978DD /* PlayersCell.swift */,
+			);
+			name = Cells;
 			sourceTree = "<group>";
 		};
 		8568D168AC481B77E1C91C4C /* Frameworks */ = {
@@ -228,6 +247,7 @@
 				47C7468F1C9B175800E978DD /* PlayerListViewController.swift in Sources */,
 				4750CB2E1C9B13D600ADE58D /* AppDelegate.swift in Sources */,
 				47C7468D1C9B170A00E978DD /* UserDetailsViewController.swift in Sources */,
+				4751F7291CB6DCC2007C9A9C /* Player.swift in Sources */,
 				47C746911C9B17BE00E978DD /* PlayerDetailsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

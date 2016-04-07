@@ -13,16 +13,41 @@ class PlayerListViewController: UIViewController, UITableViewDelegate, UITableVi
 
     @IBOutlet weak var tableView: UITableView!
     
+    var arrayOfPlayers = [Player]()
+    let defaults = NSUserDefaults.standardUserDefaults()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        let headersRequest = ["Authorization" : "Bearer \((defaults.objectForKey("accessToken") as! String))"]
+        print(headersRequest)
+        
+        Alamofire.request(.GET, "http://172.16.155.36:8080/api/players", headers: headersRequest).responseJSON{ response in
+            switch response.result {
+            case .Success (let JSON):
+                if let dictionaryJson = JSON as? [[String:AnyObject]]{
+                    print(dictionaryJson)
+                    for player in dictionaryJson {
+                        self.arrayOfPlayers.append(Player(dictionary: player)!)
+                    }
+                }
+                self.tableView.reloadData()
+                
+            case .Failure (let error):
+                print("Request failed with error: \(error)")
+            }
+        }
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 1
+        return arrayOfPlayers.count
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("PlayersCell", forIndexPath: indexPath)
+        let cell = tableView.dequeueReusableCellWithIdentifier("PlayersCell", forIndexPath: indexPath) as! PlayersCell
+        cell.playerId.text = arrayOfPlayers[indexPath.row].id!
+        cell.playerName.text = arrayOfPlayers[indexPath.row].name!
+        
         return cell
     }
 }

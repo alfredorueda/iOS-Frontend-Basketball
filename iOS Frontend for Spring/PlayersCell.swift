@@ -10,4 +10,12 @@ import UIKit
 
 class PlayersCell: UITableViewCell {
     
+    @IBOutlet weak var playerId: UILabel!
+    @IBOutlet weak var playerName: UILabel!
+    
+    override func prepareForReuse() {
+        playerId.text = ""
+        playerName.text = ""
+    }
+    
 }
