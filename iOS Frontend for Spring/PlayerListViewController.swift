@@ -45,7 +45,7 @@ class PlayerListViewController: UIViewController, UITableViewDelegate, UITableVi
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("PlayersCell", forIndexPath: indexPath) as! PlayersCell
-        cell.playerId.text = arrayOfPlayers[indexPath.row].id!
+        cell.playerId.text = String(arrayOfPlayers[indexPath.row].id!)
         cell.playerName.text = arrayOfPlayers[indexPath.row].name!
         
         return cell

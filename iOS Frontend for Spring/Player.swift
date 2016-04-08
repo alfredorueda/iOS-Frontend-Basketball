@@ -13,18 +13,7 @@ public class Player {
 	public var name : String?
 	public var baskets : Int?
 
-/**
-    Returns an array of models based on given dictionary.
-    
-    Sample usage:
-    let json4Swift_Base_list = Json4Swift_Base.modelsFromDictionaryArray(someDictionaryArrayFromJSON)
-
-    - parameter array:  NSArray from JSON dictionary.
-
-    - returns: Array of Json4Swift_Base Instances.
-*/
-    public class func modelsFromDictionaryArray(array:NSArray) -> [Player]
-    {
+    public class func modelsFromDictionaryArray(array:NSArray) -> [Player] {
         var models:[Player] = []
         for item in array
         {
@@ -33,16 +22,6 @@ public class Player {
         return models
     }
 
-/**
-    Constructs the object based on the given dictionary.
-    
-    Sample usage:
-    let json4Swift_Base = Json4Swift_Base(someDictionaryFromJSON)
-
-    - parameter dictionary:  NSDictionary from JSON.
-
-    - returns: Json4Swift_Base Instance.
-*/
 	required public init?(dictionary: NSDictionary) {
 
 		id = dictionary["id"] as? Int
@@ -50,12 +29,6 @@ public class Player {
 		baskets = dictionary["baskets"] as? Int
 	}
 
-		
-/**
-    Returns the dictionary representation for the current instance.
-    
-    - returns: NSDictionary.
-*/
 	public func dictionaryRepresentation() -> NSDictionary {
 
 		let dictionary = NSMutableDictionary()
