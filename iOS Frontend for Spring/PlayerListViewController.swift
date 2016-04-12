@@ -50,4 +50,17 @@ class PlayerListViewController: UIViewController, UITableViewDelegate, UITableVi
         
         return cell
     }
+    
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        performSegueWithIdentifier("PlayerDetails", sender: indexPath)
+        tableView.deselectRowAtIndexPath(indexPath, animated: true)
+    }
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if segue.identifier == "PlayerDetails" {
+            let vc = segue.destinationViewController as! PlayerDetailsViewController
+            let index = sender as! NSIndexPath
+            vc.player = arrayOfPlayers[index.row]
+        }
+    }
 }

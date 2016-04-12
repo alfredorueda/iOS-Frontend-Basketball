@@ -10,8 +10,15 @@ import UIKit
 import Alamofire
 
 class PlayerDetailsViewController: UIViewController {
+    
+    @IBOutlet weak var numberOfBasketsLabel: UILabel!
+    var player: Player?
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        if let _ = player {
+            title = player!.name!
+            numberOfBasketsLabel.text! = String(player!.baskets!)
+        }
     }
 }
