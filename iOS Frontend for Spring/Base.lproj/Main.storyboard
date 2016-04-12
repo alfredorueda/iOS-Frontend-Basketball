@@ -51,14 +51,14 @@
                     <connections>
                         <outlet property="passwordText" destination="KI9-02-XgQ" id="kgA-Ja-MpY"/>
                         <outlet property="usernameText" destination="oXG-PW-pd6" id="g5J-wV-01x"/>
-                        <segue destination="LJf-EH-ZeN" kind="modal" identifier="ShowUserDetails" id="2Ea-YW-xHT"/>
+                        <segue destination="BWa-mw-Bkq" kind="modal" identifier="ShowUserDetails" id="2Ea-YW-xHT"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="130" y="329"/>
         </scene>
-        <!--User Details View Controller-->
+        <!--UserToken-->
         <scene sceneID="G4h-VC-s1d">
             <objects>
                 <viewController id="LJf-EH-ZeN" customClass="UserDetailsViewController" customModule="iOS_Frontend_for_Spring" customModuleProvider="target" sceneMemberID="viewController">
@@ -70,14 +70,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="UserToken" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XJ2-Qy-6s9">
-                                <rect key="frame" x="90" y="30" width="141" height="36"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rev-As-RoK">
-                                <rect key="frame" x="-4" y="76" width="123" height="186"/>
+                                <rect key="frame" x="-4" y="84" width="123" height="186"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="access_token:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YqG-w2-qkJ">
                                         <rect key="frame" x="10" y="10" width="113" height="21"/>
@@ -140,7 +134,7 @@
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sV3-Ru-eFt">
-                                <rect key="frame" x="119" y="76" width="185" height="186"/>
+                                <rect key="frame" x="119" y="84" width="185" height="186"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="Ff7-vz-4az">
                                         <rect key="frame" x="10" y="10" width="175" height="21"/>
@@ -207,23 +201,22 @@
                                 <rect key="frame" x="62" y="518" width="197" height="30"/>
                                 <state key="normal" title="Muestra la lista de jugadores"/>
                                 <connections>
-                                    <action selector="showPlayerList:" destination="LJf-EH-ZeN" eventType="touchUpInside" id="HOZ-Ie-p2n"/>
+                                    <action selector="showPlayerList:" destination="LJf-EH-ZeN" eventType="touchUpInside" id="mL4-kS-uQH"/>
                                 </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="rev-As-RoK" firstAttribute="top" secondItem="XJ2-Qy-6s9" secondAttribute="bottom" constant="10" id="4J3-NN-02f"/>
+                            <constraint firstItem="rev-As-RoK" firstAttribute="top" secondItem="ctt-hd-9tg" secondAttribute="bottom" constant="20" id="0CH-gF-XC2"/>
                             <constraint firstItem="UEe-cx-AL1" firstAttribute="top" secondItem="a4p-2y-wTU" secondAttribute="bottom" constant="20" id="5A0-2C-GtU"/>
+                            <constraint firstItem="sV3-Ru-eFt" firstAttribute="top" secondItem="ctt-hd-9tg" secondAttribute="bottom" constant="20" id="UU9-OK-OD8"/>
                             <constraint firstItem="sV3-Ru-eFt" firstAttribute="leading" secondItem="rev-As-RoK" secondAttribute="trailing" id="dR3-9u-28h"/>
-                            <constraint firstItem="XJ2-Qy-6s9" firstAttribute="top" secondItem="ctt-hd-9tg" secondAttribute="bottom" constant="10" id="fns-l6-YgY"/>
-                            <constraint firstItem="sV3-Ru-eFt" firstAttribute="top" secondItem="XJ2-Qy-6s9" secondAttribute="bottom" constant="10" id="gc6-dd-DG0"/>
                             <constraint firstItem="a4p-2y-wTU" firstAttribute="centerX" secondItem="d87-AF-TfW" secondAttribute="centerX" id="qkR-LA-M2h"/>
                             <constraint firstItem="rev-As-RoK" firstAttribute="leading" secondItem="d87-AF-TfW" secondAttribute="leadingMargin" constant="-20" id="t23-3G-eRD"/>
                             <constraint firstAttribute="trailingMargin" secondItem="sV3-Ru-eFt" secondAttribute="trailing" id="wJs-kD-OKX"/>
-                            <constraint firstItem="XJ2-Qy-6s9" firstAttribute="centerX" secondItem="d87-AF-TfW" secondAttribute="centerX" id="xnS-12-wZk"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" title="UserToken" id="lyU-H6-VRU"/>
                     <connections>
                         <outlet property="accessToken" destination="Ff7-vz-4az" id="2E7-NG-7JU"/>
                         <outlet property="expiresIn" destination="MVN-Aa-T96" id="vQs-Q4-Qtn"/>
@@ -231,12 +224,12 @@
                         <outlet property="refreshToken" destination="aut-A9-B2P" id="xRL-AJ-bM5"/>
                         <outlet property="scope" destination="H0h-X3-GQJ" id="Ag7-PS-Aai"/>
                         <outlet property="tokenType" destination="Uc9-0h-Cm7" id="w6x-UC-YYb"/>
-                        <segue destination="Xih-E3-yG4" kind="modal" identifier="ShowPlayerList" id="uSr-r9-mVp"/>
+                        <segue destination="wR3-e2-dqC" kind="push" identifier="ShowPlayerList" id="d8e-vL-Xlr"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lpM-1r-w91" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="513" y="329"/>
+            <point key="canvasLocation" x="940" y="329"/>
         </scene>
         <!--Player List-->
         <scene sceneID="S9K-wd-Okb">
@@ -313,7 +306,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="idf-Bl-p4v" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1312" y="329"/>
+            <point key="canvasLocation" x="1376" y="329"/>
         </scene>
         <!--(PLAYER NAME)-->
         <scene sceneID="J2j-go-jlM">
@@ -328,14 +321,14 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Baskets:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TT9-rh-fWO">
-                                <rect key="frame" x="16" y="74" width="65" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <rect key="frame" x="26" y="74" width="94.5" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Fka-yn-Lwd">
-                                <rect key="frame" x="91" y="74" width="10.5" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <rect key="frame" x="130.5" y="74" width="17" height="30"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="25"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -344,8 +337,8 @@
                         <constraints>
                             <constraint firstItem="Fka-yn-Lwd" firstAttribute="centerY" secondItem="TT9-rh-fWO" secondAttribute="centerY" id="5dA-m4-dVU"/>
                             <constraint firstItem="TT9-rh-fWO" firstAttribute="top" secondItem="fZN-QG-ZWj" secondAttribute="bottom" constant="10" id="Kwp-0p-Izs"/>
-                            <constraint firstAttribute="leadingMargin" secondItem="TT9-rh-fWO" secondAttribute="leading" id="h4F-fD-TOM"/>
                             <constraint firstItem="Fka-yn-Lwd" firstAttribute="leading" secondItem="TT9-rh-fWO" secondAttribute="trailing" constant="10" id="lqh-8D-wrn"/>
+                            <constraint firstItem="TT9-rh-fWO" firstAttribute="leading" secondItem="aqy-1v-vrw" secondAttribute="leadingMargin" constant="10" id="tgv-4m-9wW"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="(PLAYER NAME)" id="Knx-kd-3G1"/>
@@ -355,25 +348,25 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9oB-Wc-so7" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1725" y="329"/>
+            <point key="canvasLocation" x="1789" y="329"/>
         </scene>
         <!--Navigation Controller-->
-        <scene sceneID="gvr-kJ-5J6">
+        <scene sceneID="Exb-qn-9n0">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Xih-E3-yG4" sceneMemberID="viewController">
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="BWa-mw-Bkq" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="tSN-vW-dAZ">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="jO0-C8-Bu6">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="wR3-e2-dqC" kind="relationship" relationship="rootViewController" id="2y6-s9-BAu"/>
+                        <segue destination="LJf-EH-ZeN" kind="relationship" relationship="rootViewController" id="TEO-af-Ygh"/>
                     </connections>
                 </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="bH3-fS-RgD" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="u6d-s2-OYD" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="894" y="329"/>
+            <point key="canvasLocation" x="513" y="329"/>
         </scene>
     </scenes>
 </document>
