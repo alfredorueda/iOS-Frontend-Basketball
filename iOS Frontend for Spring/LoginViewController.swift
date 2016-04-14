@@ -26,7 +26,7 @@ class LoginViewController: UIViewController {
                         "grant_type"    : "password",
                         "scope"         : "read write",
                         "client_secret" : "mySecretOAuthSecret",
-                        "client_id"     : "basketballapp"]
+                        "client_id"     : "BasketballOauth2Jhipster3app"]
         let headersRequest = ["Content-Type":"application/x-www-form-urlencoded"]
         
         Alamofire.request(.POST, "http://172.16.155.36:8080/oauth/token", parameters: bodyHTTP, headers: headersRequest).responseJSON{ response in
