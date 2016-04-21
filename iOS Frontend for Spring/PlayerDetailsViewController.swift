@@ -12,13 +12,31 @@ import Alamofire
 class PlayerDetailsViewController: UIViewController {
     
     @IBOutlet weak var numberOfBasketsLabel: UILabel!
+    @IBOutlet weak var numberOfRebotesLabel: UILabel!
+    @IBOutlet weak var numberOfAsistenciasLabel: UILabel!
+    @IBOutlet weak var posicionCampoLabel: UILabel!
+    
     var player: Player?
 
     override func viewDidLoad() {
         super.viewDidLoad()
         if let _ = player {
+            
             title = player!.name!
-            numberOfBasketsLabel.text! = String(player!.baskets!)
+            
+            if let baskets = player!.baskets {
+                numberOfBasketsLabel.text = String(baskets)
+            }
+            
+            if let rebotes = player!.rebotes {
+                numberOfRebotesLabel.text = String(rebotes)
+            }
+            
+            if let asistencias = player!.asistencias {
+                numberOfAsistenciasLabel.text = String(asistencias)
+            }
+            
+            posicionCampoLabel.text = player!.posicionCampo!
         }
     }
 }

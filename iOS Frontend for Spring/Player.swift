@@ -9,9 +9,12 @@
 import Foundation
 
 public class Player {
-	public var id : Int?
-	public var name : String?
-	public var baskets : Int?
+	public var id: Int?
+	public var name: String?
+	public var baskets: Int?
+    public var rebotes: Int?
+    public var asistencias: Int?
+    public var posicionCampo: String?
 
     public class func modelsFromDictionaryArray(array:NSArray) -> [Player] {
         var models:[Player] = []
@@ -27,6 +30,9 @@ public class Player {
 		id = dictionary["id"] as? Int
 		name = dictionary["name"] as? String
 		baskets = dictionary["baskets"] as? Int
+        rebotes = dictionary["rebotes"] as? Int
+        asistencias = dictionary["asistencias"] as? Int
+        posicionCampo = dictionary["posicionCampo"] as? String
 	}
 
 	public func dictionaryRepresentation() -> NSDictionary {
@@ -36,6 +42,9 @@ public class Player {
 		dictionary.setValue(self.id, forKey: "id")
 		dictionary.setValue(self.name, forKey: "name")
 		dictionary.setValue(self.baskets, forKey: "baskets")
+        dictionary.setValue(self.rebotes, forKey: "rebotes")
+        dictionary.setValue(self.asistencias, forKey: "asistencias")
+        dictionary.setValue(self.posicionCampo, forKey: "posicionCampo")
 
 		return dictionary
 	}
