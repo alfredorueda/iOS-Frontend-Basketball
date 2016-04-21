@@ -15,28 +15,23 @@ class PlayerListViewController: UIViewController, UITableViewDelegate, UITableVi
     
     var arrayOfPlayers = [Player]()
     let defaults = NSUserDefaults.standardUserDefaults()
+    var refreshControl: UIRefreshControl!
+    
+    override func viewDidAppear(animated: Bool) {
+        fetchDataFromTheApi()
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let headersRequest = ["Authorization" : "Bearer \((defaults.objectForKey("accessToken") as! String))"]
-        print(headersRequest)
+        fetchDataFromTheApi()
         
-        Alamofire.request(.GET, "http://172.16.155.36:8080/api/players", headers: headersRequest).responseJSON{ response in
-            switch response.result {
-            case .Success (let JSON):
-                if let dictionaryJson = JSON as? [[String:AnyObject]]{
-                    print(dictionaryJson)
-                    for player in dictionaryJson {
-                        self.arrayOfPlayers.append(Player(dictionary: player)!)
-                    }
-                }
-                self.tableView.reloadData()
-                
-            case .Failure (let error):
-                print("Request failed with error: \(error)")
-            }
-        }
+        refreshControl = UIRefreshControl()
+        refreshControl.attributedTitle = NSAttributedString(string: "Pull to refresh")
+        refreshControl.addTarget(self, action: #selector(PlayerListViewController.reloadTableView(_:)), forControlEvents: UIControlEvents.ValueChanged)
+        tableView.addSubview(refreshControl)
+        
+        
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -54,6 +49,33 @@ class PlayerListViewController: UIViewController, UITableViewDelegate, UITableVi
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         performSegueWithIdentifier("PlayerDetails", sender: indexPath)
         tableView.deselectRowAtIndexPath(indexPath, animated: true)
+    }
+    
+    func reloadTableView(sender: AnyObject) {
+        fetchDataFromTheApi()
+    }
+    
+    func fetchDataFromTheApi() {
+        let headersRequest = ["Authorization" : "Bearer \((defaults.objectForKey("accessToken") as! String))"]
+        print(headersRequest)
+        
+        Alamofire.request(.GET, "http://172.16.155.36:8080/api/players", headers: headersRequest).responseJSON{ response in
+            switch response.result {
+            case .Success (let JSON):
+                if let dictionaryJson = JSON as? [[String:AnyObject]]{
+                    print(dictionaryJson)
+                    self.arrayOfPlayers = []
+                    for player in dictionaryJson {
+                        self.arrayOfPlayers.append(Player(dictionary: player)!)
+                    }
+                    self.refreshControl.endRefreshing()
+                }
+                self.tableView.reloadData()
+                
+            case .Failure (let error):
+                print("Request failed with error: \(error)")
+            }
+        }
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {

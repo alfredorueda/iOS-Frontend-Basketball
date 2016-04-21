@@ -7,12 +7,7 @@
 //
 
 import UIKit
-
-enum PosicionesCampo {
-    case Alero
-    case Base
-    case Pivot
-}
+import Alamofire
 
 class AddPlayerViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
     
@@ -23,11 +18,12 @@ class AddPlayerViewController: UIViewController, UIPickerViewDelegate, UIPickerV
     @IBOutlet weak var posicionCampoPickerView: UIPickerView!
     @IBOutlet weak var doneButton: UIButton!
     
-    var posicionesCampo = [PosicionesCampo]()
+    var posicionesCampo = [String]()
+    let defaults = NSUserDefaults.standardUserDefaults()
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        posicionesCampo = [.Alero, .Base, .Pivot]
+        posicionesCampo = ["Alero", "Base", "Pivot"]
         doneButton.enabled = false
         nombreJugadorTextField.addTarget(self, action: #selector(AddPlayerViewController.textFieldDidChange(_:)), forControlEvents: UIControlEvents.EditingChanged)
     }
@@ -37,6 +33,48 @@ class AddPlayerViewController: UIViewController, UIPickerViewDelegate, UIPickerV
     }
     
     @IBAction func addPlayer(sender: UIButton) {
+        
+        let jugadorName = nombreJugadorTextField.text!
+        
+        var canastasJugador = 0
+        var rebotesJugador = 0
+        var asistenciasJugador = 0
+        
+        if canastasJugadorTextField.text! != "" {
+            canastasJugador = Int(canastasJugadorTextField.text!)!
+        }
+        
+        if rebotesJugadorTextField.text! != "" {
+            rebotesJugador = Int(rebotesJugadorTextField.text!)!
+        }
+        
+        if asistenciasJugadorTextField.text! != "" {
+            asistenciasJugador = Int(asistenciasJugadorTextField.text!)!
+        }
+        
+        let indexSelected = posicionCampoPickerView.selectedRowInComponent(0)
+        let posicionCampo = posicionesCampo[indexSelected]
+        
+        let bodyHTTP = ["name"      : jugadorName,
+                    "baskets"       : canastasJugador,
+                    "rebotes"       : rebotesJugador,
+                    "asistencias"   : asistenciasJugador,
+                    "posicionCampo" : posicionCampo]
+        
+        let headersRequest = ["Authorization" : "Bearer \((defaults.objectForKey("accessToken") as! String))",
+                              "Content-Type"  : "application/json"]
+        
+        Alamofire.request(.POST, "http://172.16.155.36:8080/api/players", parameters: bodyHTTP as? [String: AnyObject], headers: headersRequest, encoding: .JSON).responseJSON{ response in
+            switch response.result {
+            case .Success (let JSON):
+                print(JSON)
+                self.dismissViewControllerAnimated(true, completion: nil)
+            case .Failure (let error):
+                print("Request failed with error: \(error)")
+            }
+        }
+        
+        
         
     }
     
