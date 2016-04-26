@@ -231,10 +231,10 @@
             </objects>
             <point key="canvasLocation" x="940" y="329"/>
         </scene>
-        <!--Add Player View Controller-->
+        <!--Add Edit Player View Controller-->
         <scene sceneID="CBE-lB-cq1">
             <objects>
-                <viewController id="oMZ-55-yIu" customClass="AddPlayerViewController" customModule="iOS_Frontend_for_Spring" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="oMZ-55-yIu" customClass="AddEditPlayerViewController" customModule="iOS_Frontend_for_Spring" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="I4x-p1-bds"/>
                         <viewControllerLayoutGuide type="bottom" id="4Fn-x8-5M0"/>

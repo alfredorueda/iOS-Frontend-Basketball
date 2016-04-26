@@ -46,7 +46,7 @@ class PlayerDetailsViewController: UIViewController, DelegateForDismissingTheDet
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "UpdatePlayer" {
-            let vc = segue.destinationViewController as! AddPlayerViewController
+            let vc = segue.destinationViewController as! AddEditPlayerViewController
             vc.player = player
             vc.delegateToDismissTheDetailsOfThePlayer = self
         }

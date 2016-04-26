@@ -13,7 +13,7 @@ protocol DelegateForDismissingTheDetailsOfThePlayer: class {
     func dismissDetailsPlayer()
 }
 
-class AddPlayerViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
+class AddEditPlayerViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
     
     @IBOutlet weak var nombreJugadorTextField: UITextField!
     @IBOutlet weak var canastasJugadorTextField: UITextField!
@@ -33,7 +33,7 @@ class AddPlayerViewController: UIViewController, UIPickerViewDelegate, UIPickerV
         super.viewDidLoad()
         posicionesCampo = ["Alero", "Base", "Pivot"]
         doneButton.enabled = false
-        nombreJugadorTextField.addTarget(self, action: #selector(AddPlayerViewController.textFieldDidChange(_:)), forControlEvents: UIControlEvents.EditingChanged)
+        nombreJugadorTextField.addTarget(self, action: #selector(AddEditPlayerViewController.textFieldDidChange(_:)), forControlEvents: UIControlEvents.EditingChanged)
         
         if let _ = player {
             titleLabel.text = "Actualizar el jugador"
