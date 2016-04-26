@@ -110,8 +110,7 @@ class AddPlayerViewController: UIViewController, UIPickerViewDelegate, UIPickerV
             
             Alamofire.request(.PUT, "http://\(Helper().serverIP)/api/players", parameters: bodyHTTP as? [String: AnyObject], headers: headersRequest, encoding: .JSON).responseJSON{ response in
                 switch response.result {
-                case .Success (let JSON):
-                    print(JSON)
+                case .Success:
                     self.dismissViewControllerAnimated(true, completion: nil)
                     self.delegateToDismissTheDetailsOfThePlayer?.dismissDetailsPlayer()
                 case .Failure (let error):
