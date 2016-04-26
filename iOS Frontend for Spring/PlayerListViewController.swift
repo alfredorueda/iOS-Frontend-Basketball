@@ -27,7 +27,7 @@ class PlayerListViewController: UIViewController, UITableViewDelegate, UITableVi
         fetchDataFromTheApi()
         
         refreshControl = UIRefreshControl()
-        refreshControl.attributedTitle = NSAttributedString(string: "Pull to refresh")
+        refreshControl.attributedTitle = NSAttributedString(string: "Actualizando jugadores...")
         refreshControl.addTarget(self, action: #selector(PlayerListViewController.reloadTableView(_:)), forControlEvents: UIControlEvents.ValueChanged)
         tableView.addSubview(refreshControl)
         
@@ -57,13 +57,11 @@ class PlayerListViewController: UIViewController, UITableViewDelegate, UITableVi
     
     func fetchDataFromTheApi() {
         let headersRequest = ["Authorization" : "Bearer \((defaults.objectForKey("accessToken") as! String))"]
-        print(headersRequest)
         
-        Alamofire.request(.GET, "http://172.16.155.36:8080/api/players", headers: headersRequest).responseJSON{ response in
+        Alamofire.request(.GET, "http://\(Helper().serverIP)/api/players", headers: headersRequest).responseJSON{ response in
             switch response.result {
             case .Success (let JSON):
                 if let dictionaryJson = JSON as? [[String:AnyObject]]{
-                    print(dictionaryJson)
                     self.arrayOfPlayers = []
                     for player in dictionaryJson {
                         self.arrayOfPlayers.append(Player(dictionary: player)!)

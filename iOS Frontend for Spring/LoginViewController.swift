@@ -29,7 +29,7 @@ class LoginViewController: UIViewController {
                         "client_id"     : "BasketballOauth2Jhipster3app"]
         let headersRequest = ["Content-Type":"application/x-www-form-urlencoded"]
         
-        Alamofire.request(.POST, "http://172.16.155.36:8080/oauth/token", parameters: bodyHTTP, headers: headersRequest).responseJSON{ response in
+        Alamofire.request(.POST, "http://\(Helper().serverIP)/oauth/token", parameters: bodyHTTP, headers: headersRequest).responseJSON{ response in
             switch response.result {
             case .Success (let JSON):
                 if let _ = JSON["error"]! {

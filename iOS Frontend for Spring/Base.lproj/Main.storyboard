@@ -325,11 +325,12 @@
                         <outlet property="nombreJugadorTextField" destination="UhE-9F-QZT" id="MYu-Bl-iqp"/>
                         <outlet property="posicionCampoPickerView" destination="DqE-D2-1z1" id="Nus-v1-r9K"/>
                         <outlet property="rebotesJugadorTextField" destination="KxV-x2-vEa" id="EHn-Zn-nYh"/>
+                        <outlet property="titleLabel" destination="RN3-Tr-ytc" id="Gs4-7U-vEe"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="XJF-SF-cek" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1376" y="-299"/>
+            <point key="canvasLocation" x="2263" y="329"/>
         </scene>
         <!--Player List-->
         <scene sceneID="S9K-wd-Okb">
@@ -495,7 +496,13 @@
                             <constraint firstItem="RY6-lh-7iC" firstAttribute="centerY" secondItem="Ft5-Et-LuI" secondAttribute="centerY" id="xul-Ex-QNo"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="(PLAYER NAME)" id="Knx-kd-3G1"/>
+                    <navigationItem key="navigationItem" title="(PLAYER NAME)" id="Knx-kd-3G1">
+                        <barButtonItem key="rightBarButtonItem" systemItem="action" id="qnb-rp-Qmx">
+                            <connections>
+                                <segue destination="oMZ-55-yIu" kind="modal" identifier="UpdatePlayer" id="Qge-Ac-kB0"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="numberOfAsistenciasLabel" destination="RY6-lh-7iC" id="74W-el-0q5"/>
                         <outlet property="numberOfBasketsLabel" destination="Fka-yn-Lwd" id="XZo-Uj-85w"/>
@@ -505,7 +512,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9oB-Wc-so7" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1789" y="329"/>
+            <point key="canvasLocation" x="1824" y="729"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="Exb-qn-9n0">
@@ -526,4 +533,7 @@
             <point key="canvasLocation" x="513" y="329"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="Qge-Ac-kB0"/>
+    </inferredMetricsTieBreakers>
 </document>

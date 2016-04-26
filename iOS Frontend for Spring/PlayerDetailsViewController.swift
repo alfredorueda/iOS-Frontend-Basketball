@@ -9,7 +9,7 @@
 import UIKit
 import Alamofire
 
-class PlayerDetailsViewController: UIViewController {
+class PlayerDetailsViewController: UIViewController, DelegateForDismissingTheDetailsOfThePlayer {
     
     @IBOutlet weak var numberOfBasketsLabel: UILabel!
     @IBOutlet weak var numberOfRebotesLabel: UILabel!
@@ -37,6 +37,18 @@ class PlayerDetailsViewController: UIViewController {
             }
             
             posicionCampoLabel.text = player!.posicionCampo!
+        }
+    }
+    
+    func dismissDetailsPlayer() {
+        navigationController?.popViewControllerAnimated(true)
+    }
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if segue.identifier == "UpdatePlayer" {
+            let vc = segue.destinationViewController as! AddPlayerViewController
+            vc.player = player
+            vc.delegateToDismissTheDetailsOfThePlayer = self
         }
     }
 }
