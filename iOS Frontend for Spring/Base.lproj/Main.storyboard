@@ -240,7 +240,7 @@
             </objects>
             <point key="canvasLocation" x="940" y="329"/>
         </scene>
-        <!--Nombre-->
+        <!--Búsqueda por nombre-->
         <scene sceneID="trz-8m-EBJ">
             <objects>
                 <viewController id="710-QM-hqb" customClass="BusquedaPorNombreViewController" customModule="iOS_Frontend_for_Spring" customModuleProvider="target" sceneMemberID="viewController">
@@ -252,18 +252,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3uw-iP-A07">
-                                <rect key="frame" x="-4" y="20" width="328" height="44"/>
-                                <items>
-                                    <navigationItem title="Búsqueda por nombre" id="FI5-b6-Uft">
-                                        <barButtonItem key="rightBarButtonItem" systemItem="cancel" id="Ncs-a4-bJ9">
-                                            <connections>
-                                                <action selector="dismissAdvancedSearch:" destination="710-QM-hqb" id="6Fy-32-OB6"/>
-                                            </connections>
-                                        </barButtonItem>
-                                    </navigationItem>
-                                </items>
-                            </navigationBar>
                             <searchBar contentMode="redraw" placeholder="Introduce un nombre..." translatesAutoresizingMaskIntoConstraints="NO" id="2T2-DN-6fP">
                                 <rect key="frame" x="-4" y="64" width="328" height="44"/>
                                 <textInputTraits key="textInputTraits"/>
@@ -301,26 +289,30 @@
                         </subviews>
                         <color key="backgroundColor" red="0.96862745098039216" green="0.96862745098039216" blue="0.96862745098039216" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
+                            <constraint firstItem="2T2-DN-6fP" firstAttribute="top" secondItem="LFY-cT-2ps" secondAttribute="bottom" id="2pu-kj-S5C"/>
                             <constraint firstAttribute="trailingMargin" secondItem="2T2-DN-6fP" secondAttribute="trailing" constant="-20" id="5f6-nQ-167"/>
                             <constraint firstAttribute="trailingMargin" secondItem="GQj-U9-esh" secondAttribute="trailing" constant="-20" id="HMO-8W-kFS"/>
                             <constraint firstItem="GQj-U9-esh" firstAttribute="top" secondItem="2T2-DN-6fP" secondAttribute="bottom" id="QPa-V6-Atf"/>
-                            <constraint firstItem="2T2-DN-6fP" firstAttribute="top" secondItem="3uw-iP-A07" secondAttribute="bottom" id="SOL-gc-08r"/>
                             <constraint firstItem="2T2-DN-6fP" firstAttribute="leading" secondItem="hUi-qj-8Qb" secondAttribute="leadingMargin" constant="-20" id="UD3-SL-Hlo"/>
-                            <constraint firstItem="3uw-iP-A07" firstAttribute="top" secondItem="LFY-cT-2ps" secondAttribute="bottom" id="d6U-KC-k3v"/>
                             <constraint firstItem="TDa-rK-fxd" firstAttribute="top" secondItem="GQj-U9-esh" secondAttribute="bottom" id="l0a-VA-f2M"/>
                             <constraint firstItem="GQj-U9-esh" firstAttribute="leading" secondItem="hUi-qj-8Qb" secondAttribute="leadingMargin" constant="-20" id="onB-fP-sT3"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="3uw-iP-A07" secondAttribute="trailing" constant="-20" id="sDk-Yx-DOJ"/>
-                            <constraint firstItem="3uw-iP-A07" firstAttribute="leading" secondItem="hUi-qj-8Qb" secondAttribute="leadingMargin" constant="-20" id="zFm-IH-7I6"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Nombre" id="NFw-Wy-Xjg"/>
+                    <navigationItem key="navigationItem" title="Búsqueda por nombre" id="63G-OH-ROh">
+                        <barButtonItem key="rightBarButtonItem" systemItem="done" id="YDA-g1-Lxz">
+                            <connections>
+                                <action selector="dismissAdvancedSearch:" destination="710-QM-hqb" id="UvE-Tz-ZxA"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="tableView" destination="GQj-U9-esh" id="XXP-oi-MOV"/>
+                        <segue destination="ivt-dN-ht8" kind="push" identifier="showDetailsFromNombreSearch" id="xjx-Je-jYd"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8lc-L2-98r" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1376" y="955"/>
+            <point key="canvasLocation" x="2856" y="1085"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="1Sn-xo-d2l">
@@ -332,14 +324,14 @@
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     </tabBar>
                     <connections>
-                        <segue destination="710-QM-hqb" kind="relationship" relationship="viewControllers" id="KFs-7M-oTH"/>
-                        <segue destination="iXb-rt-BIg" kind="relationship" relationship="viewControllers" id="Tmx-R4-Pqa"/>
-                        <segue destination="DaR-Js-UNi" kind="relationship" relationship="viewControllers" id="lAO-VG-h2Q"/>
+                        <segue destination="1cP-2L-yGY" kind="relationship" relationship="viewControllers" id="KFs-7M-oTH"/>
+                        <segue destination="9RA-Tu-tJi" kind="relationship" relationship="viewControllers" id="Tmx-R4-Pqa"/>
+                        <segue destination="vb1-kl-oRy" kind="relationship" relationship="viewControllers" id="lAO-VG-h2Q"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="G12-d3-JoK" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="940" y="1069"/>
+            <point key="canvasLocation" x="872" y="1585"/>
         </scene>
         <!--Add Edit Player View Controller-->
         <scene sceneID="CBE-lB-cq1">
@@ -440,7 +432,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="XJF-SF-cek" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2263" y="329"/>
+            <point key="canvasLocation" x="2841" y="347"/>
         </scene>
         <!--Player List-->
         <scene sceneID="S9K-wd-Okb">
@@ -622,7 +614,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9oB-Wc-so7" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1824" y="729"/>
+            <point key="canvasLocation" x="3942" y="1585"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="Exb-qn-9n0">
@@ -642,7 +634,7 @@
             </objects>
             <point key="canvasLocation" x="513" y="329"/>
         </scene>
-        <!--Canastas-->
+        <!--Búsqueda por canastas-->
         <scene sceneID="ukq-tJ-6jA">
             <objects>
                 <viewController id="iXb-rt-BIg" customClass="BusquedaPorCanastasViewController" customModule="iOS_Frontend_for_Spring" customModuleProvider="target" sceneMemberID="viewController">
@@ -654,18 +646,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qHR-im-Frm">
-                                <rect key="frame" x="-4" y="20" width="328" height="44"/>
-                                <items>
-                                    <navigationItem title="Búsqueda por canastas" id="OXd-1B-cLy">
-                                        <barButtonItem key="rightBarButtonItem" systemItem="cancel" id="885-eg-2mZ">
-                                            <connections>
-                                                <action selector="dismissAdvancedSearch:" destination="iXb-rt-BIg" id="YI6-cT-iHK"/>
-                                            </connections>
-                                        </barButtonItem>
-                                    </navigationItem>
-                                </items>
-                            </navigationBar>
                             <searchBar contentMode="redraw" placeholder="Introduce el número de canastas..." translatesAutoresizingMaskIntoConstraints="NO" id="Cyz-xg-qxR">
                                 <rect key="frame" x="-4" y="64" width="328" height="44"/>
                                 <textInputTraits key="textInputTraits"/>
@@ -705,26 +685,30 @@
                         <constraints>
                             <constraint firstItem="Bj7-C0-bKH" firstAttribute="leading" secondItem="XJs-TH-Irh" secondAttribute="leadingMargin" constant="-20" id="AA3-XQ-E4r"/>
                             <constraint firstAttribute="trailingMargin" secondItem="Cyz-xg-qxR" secondAttribute="trailing" constant="-20" id="FNf-1B-tOf"/>
-                            <constraint firstItem="Cyz-xg-qxR" firstAttribute="top" secondItem="qHR-im-Frm" secondAttribute="bottom" id="KYJ-Zb-brT"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="qHR-im-Frm" secondAttribute="trailing" constant="-20" id="VdQ-Xk-Ivv"/>
                             <constraint firstItem="Bj7-C0-bKH" firstAttribute="top" secondItem="Cyz-xg-qxR" secondAttribute="bottom" id="Z5X-54-O1b"/>
-                            <constraint firstItem="qHR-im-Frm" firstAttribute="top" secondItem="Hlk-oy-I5a" secondAttribute="bottom" id="ZeA-lC-hiM"/>
-                            <constraint firstItem="qHR-im-Frm" firstAttribute="leading" secondItem="XJs-TH-Irh" secondAttribute="leadingMargin" constant="-20" id="szv-h7-vrC"/>
+                            <constraint firstItem="Cyz-xg-qxR" firstAttribute="top" secondItem="Hlk-oy-I5a" secondAttribute="bottom" id="dsc-5h-Pvc"/>
                             <constraint firstItem="Le7-vx-7FI" firstAttribute="top" secondItem="Bj7-C0-bKH" secondAttribute="bottom" id="t3F-bf-eIC"/>
                             <constraint firstAttribute="trailingMargin" secondItem="Bj7-C0-bKH" secondAttribute="trailing" constant="-20" id="wK9-5q-XQU"/>
                             <constraint firstItem="Cyz-xg-qxR" firstAttribute="leading" secondItem="XJs-TH-Irh" secondAttribute="leadingMargin" constant="-20" id="xOc-5K-SmS"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Canastas" id="cnd-oV-bDs"/>
+                    <navigationItem key="navigationItem" title="Búsqueda por canastas" id="dy7-aQ-w7t">
+                        <barButtonItem key="rightBarButtonItem" systemItem="done" id="iPm-eq-L5i">
+                            <connections>
+                                <action selector="dismissAdvancedSearch:" destination="iXb-rt-BIg" id="3cz-ze-YKw"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="tableView" destination="Bj7-C0-bKH" id="pWr-91-OZ5"/>
+                        <segue destination="ivt-dN-ht8" kind="push" identifier="showDetailsFromCanastasSearch" id="2jd-aS-Ovu"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="y8w-VK-HaD" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1376" y="1585"/>
+            <point key="canvasLocation" x="1908" y="1585"/>
         </scene>
-        <!--Fecha-->
+        <!--Búsqueda por fecha de nacimiento-->
         <scene sceneID="6xf-Vg-5Nv">
             <objects>
                 <viewController id="DaR-Js-UNi" sceneMemberID="viewController">
@@ -736,14 +720,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qOh-Hh-5EP">
-                                <rect key="frame" x="-4" y="20" width="328" height="44"/>
-                                <items>
-                                    <navigationItem title="Búsqueda por fecha de nacimiento" id="ykS-y6-Cp0">
-                                        <barButtonItem key="rightBarButtonItem" systemItem="cancel" id="kiz-gc-hS2"/>
-                                    </navigationItem>
-                                </items>
-                            </navigationBar>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="xHG-Mg-uJO">
                                 <rect key="frame" x="-4" y="64" width="328" height="455"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -752,22 +728,80 @@
                         <color key="backgroundColor" red="0.96862745098039216" green="0.96862745098039216" blue="0.96862745098039216" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="xHG-Mg-uJO" firstAttribute="leading" secondItem="Stl-4h-rMI" secondAttribute="leadingMargin" constant="-20" id="6My-Ij-ouj"/>
-                            <constraint firstItem="qOh-Hh-5EP" firstAttribute="leading" secondItem="Stl-4h-rMI" secondAttribute="leadingMargin" constant="-20" id="9rQ-G5-Fxn"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="qOh-Hh-5EP" secondAttribute="trailing" constant="-20" id="GS8-F4-DCK"/>
-                            <constraint firstItem="qOh-Hh-5EP" firstAttribute="top" secondItem="6WE-S5-I6p" secondAttribute="bottom" id="HBi-pK-kZa"/>
                             <constraint firstAttribute="trailingMargin" secondItem="xHG-Mg-uJO" secondAttribute="trailing" constant="-20" id="Kj1-8Q-MRt"/>
+                            <constraint firstItem="xHG-Mg-uJO" firstAttribute="top" secondItem="6WE-S5-I6p" secondAttribute="bottom" id="bky-fI-6br"/>
                             <constraint firstItem="VUe-1Z-Gvy" firstAttribute="top" secondItem="xHG-Mg-uJO" secondAttribute="bottom" id="gpG-wP-KpG"/>
-                            <constraint firstItem="xHG-Mg-uJO" firstAttribute="top" secondItem="qOh-Hh-5EP" secondAttribute="bottom" id="vAQ-HX-H78"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Fecha" id="dis-C9-4i6"/>
+                    <navigationItem key="navigationItem" title="Búsqueda por fecha de nacimiento" id="Nov-sZ-qCZ"/>
+                    <connections>
+                        <segue destination="ivt-dN-ht8" kind="push" identifier="showDetailsFromFechaSearch" id="aub-1B-ASR"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Za2-6M-BKa" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="940" y="1957"/>
+            <point key="canvasLocation" x="2856" y="2077"/>
+        </scene>
+        <!--Nombre-->
+        <scene sceneID="a3h-rw-YUT">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="1cP-2L-yGY" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Nombre" id="NFw-Wy-Xjg"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="NXd-of-B4B">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="710-QM-hqb" kind="relationship" relationship="rootViewController" id="ngW-WE-wTD"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="cbp-za-hLY" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2324" y="1085"/>
+        </scene>
+        <!--Canastas-->
+        <scene sceneID="stp-4E-s6D">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="9RA-Tu-tJi" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Canastas" id="cnd-oV-bDs"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="KI0-XB-pFU">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="iXb-rt-BIg" kind="relationship" relationship="rootViewController" id="rLa-Qk-ESA"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="wli-xm-Qgy" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1376" y="1585"/>
+        </scene>
+        <!--Fecha-->
+        <scene sceneID="pHi-9R-ccE">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="vb1-kl-oRy" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Fecha" id="dis-C9-4i6"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="zJx-LD-iIz">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="DaR-Js-UNi" kind="relationship" relationship="rootViewController" id="Yd2-fz-yoa"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="75a-7X-A0B" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2324" y="2077"/>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="YDV-8a-s4z"/>
+        <segue reference="aub-1B-ASR"/>
+        <segue reference="Qge-Ac-kB0"/>
     </inferredMetricsTieBreakers>
 </document>

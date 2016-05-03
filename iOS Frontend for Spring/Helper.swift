@@ -9,5 +9,5 @@
 import Foundation
 
 class Helper {
-    let serverIP = "172.16.155.36:8080"
+    let serverIP = "192.168.2.5:8080"
 }

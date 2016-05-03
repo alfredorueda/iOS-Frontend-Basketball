@@ -34,6 +34,10 @@ class BusquedaPorCanastasViewController: UIViewController, UITableViewDelegate, 
         return cell
     }
     
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        performSegueWithIdentifier("showDetailsFromCanastasSearch", sender: self)
+    }
+    
     func searchBar(searchBar: UISearchBar, textDidChange searchText: String) {
         performQueryToTheApi(searchText)
     }
@@ -44,30 +48,32 @@ class BusquedaPorCanastasViewController: UIViewController, UITableViewDelegate, 
             let optionalNumCanastas = Int(searchText)
             if let numCanastas = optionalNumCanastas {
                 
-                
                 let headersRequest = ["Authorization" : "Bearer \((defaults.objectForKey("accessToken") as! String))"]
                 
-                Alamofire.request(.GET, "http://\(Helper().serverIP)/api/players/\(numCanastas)", headers: headersRequest).responseJSON{ response in
+                Alamofire.request(.GET, "http://\(Helper().serverIP)/api/players/canastas/\(numCanastas)", headers: headersRequest).responseJSON{ response in
                     switch response.result {
                     case .Success (let JSON):
-                        print(JSON)
-                        /*if let dictionaryJson = JSON as? [[String:AnyObject]]{
+                        if let dictionaryJson = JSON as? [[String:AnyObject]]{
                             self.arrayOfPlayers = []
                             for player in dictionaryJson {
                                 self.arrayOfPlayers.append(Player(dictionary: player)!)
                             }
-                            self.refreshControl.endRefreshing()
                         }
-                        self.tableView.reloadData()*/
+                        self.tableView.reloadData()
                         
                     case .Failure (let error):
                         print("Request failed with error: \(error)")
                     }
                 }
-                
-                
-                
             }
+        }
+    }
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if segue.identifier == "showDetailsFromCanastasSearch" {
+            let vc = segue.destinationViewController as! PlayerDetailsViewController
+            let index = tableView.indexPathForSelectedRow!
+            vc.player = arrayOfPlayers[index.row]
         }
     }
 }
