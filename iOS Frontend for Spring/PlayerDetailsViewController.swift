@@ -15,6 +15,7 @@ class PlayerDetailsViewController: UIViewController, DelegateForDismissingTheDet
     @IBOutlet weak var numberOfRebotesLabel: UILabel!
     @IBOutlet weak var numberOfAsistenciasLabel: UILabel!
     @IBOutlet weak var posicionCampoLabel: UILabel!
+    @IBOutlet weak var fechaNacimientoLabel: UILabel!
     
     var player: Player?
 
@@ -34,6 +35,10 @@ class PlayerDetailsViewController: UIViewController, DelegateForDismissingTheDet
             
             if let asistencias = player!.asistencias {
                 numberOfAsistenciasLabel.text = String(asistencias)
+            }
+            
+            if let fechaNacimiento = player!.fechaNacimiento {
+                fechaNacimientoLabel.text = fechaNacimiento
             }
             
             posicionCampoLabel.text = player!.posicionCampo!

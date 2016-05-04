@@ -15,6 +15,7 @@ public class Player {
     public var rebotes: Int?
     public var asistencias: Int?
     public var posicionCampo: String?
+    public var fechaNacimiento: String?
 
     public class func modelsFromDictionaryArray(array:NSArray) -> [Player] {
         var models:[Player] = []
@@ -33,6 +34,7 @@ public class Player {
         rebotes = dictionary["rebotes"] as? Int
         asistencias = dictionary["asistencias"] as? Int
         posicionCampo = dictionary["posicionCampo"] as? String
+        fechaNacimiento = dictionary["fechaNacimiento"] as? String
 	}
 
 	public func dictionaryRepresentation() -> NSDictionary {
@@ -45,6 +47,7 @@ public class Player {
         dictionary.setValue(self.rebotes, forKey: "rebotes")
         dictionary.setValue(self.asistencias, forKey: "asistencias")
         dictionary.setValue(self.posicionCampo, forKey: "posicionCampo")
+        dictionary.setValue(self.fechaNacimiento, forKey: "fechaNacimiento")
 
 		return dictionary
 	}
