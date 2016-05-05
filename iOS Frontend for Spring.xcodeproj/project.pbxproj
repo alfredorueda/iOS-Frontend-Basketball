@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		04749F054FF15E5938C93B59 /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EE979F434122FC722D3F19A0 /* Pods.framework */; };
+		472C43841CDB97F100646AEF /* BusquedaPorFechaViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 472C43831CDB97F100646AEF /* BusquedaPorFechaViewController.swift */; };
 		4750CB2E1C9B13D600ADE58D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4750CB2D1C9B13D600ADE58D /* AppDelegate.swift */; };
 		4750CB301C9B13D600ADE58D /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4750CB2F1C9B13D600ADE58D /* LoginViewController.swift */; };
 		4750CB331C9B13D600ADE58D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4750CB311C9B13D600ADE58D /* Main.storyboard */; };
@@ -25,6 +26,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		472C43831CDB97F100646AEF /* BusquedaPorFechaViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BusquedaPorFechaViewController.swift; sourceTree = "<group>"; };
 		4750CB2A1C9B13D600ADE58D /* iOS Frontend for Spring.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "iOS Frontend for Spring.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		4750CB2D1C9B13D600ADE58D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4750CB2F1C9B13D600ADE58D /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
@@ -99,6 +101,7 @@
 				4750CB311C9B13D600ADE58D /* Main.storyboard */,
 				47B037601CD10745009479D2 /* BusquedaPorNombreViewController.swift */,
 				47B037621CD10CCD009479D2 /* BusquedaPorCanastasViewController.swift */,
+				472C43831CDB97F100646AEF /* BusquedaPorFechaViewController.swift */,
 				4750CB341C9B13D600ADE58D /* Assets.xcassets */,
 				4750CB361C9B13D600ADE58D /* LaunchScreen.storyboard */,
 				4750CB391C9B13D600ADE58D /* Info.plist */,
@@ -264,6 +267,7 @@
 				47D6E79B1CCFD7DF00555160 /* Helper.swift in Sources */,
 				47AD3DD81CC920C900D95F8E /* AddEditPlayerViewController.swift in Sources */,
 				4751F7291CB6DCC2007C9A9C /* Player.swift in Sources */,
+				472C43841CDB97F100646AEF /* BusquedaPorFechaViewController.swift in Sources */,
 				47C746911C9B17BE00E978DD /* PlayerDetailsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

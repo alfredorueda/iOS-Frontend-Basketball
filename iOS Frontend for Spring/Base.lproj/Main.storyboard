@@ -729,7 +729,7 @@
         <!--Búsqueda por fecha de nacimiento-->
         <scene sceneID="6xf-Vg-5Nv">
             <objects>
-                <viewController id="DaR-Js-UNi" sceneMemberID="viewController">
+                <viewController id="DaR-Js-UNi" customClass="BusquedaPorFechaViewController" customModule="iOS_Frontend_for_Spring" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="6WE-S5-I6p"/>
                         <viewControllerLayoutGuide type="bottom" id="VUe-1Z-Gvy"/>
@@ -738,21 +738,94 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Fecha de inicio:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RIF-Gh-9fK">
+                                <rect key="frame" x="16" y="72" width="120" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Fecha de fin:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XX2-MB-qg5">
+                                <rect key="frame" x="16" y="113" width="99" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="YYYY-MM-DD" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Uuj-gU-TXM">
+                                <rect key="frame" x="144" y="68" width="160" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="xHG-Mg-uJO">
-                                <rect key="frame" x="-4" y="64" width="328" height="455"/>
+                                <rect key="frame" x="-4" y="194" width="328" height="324.5"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="PlayerCell" textLabel="Hha-fu-Lff" style="IBUITableViewCellStyleDefault" id="oZh-5a-ZIk" customClass="PlayersCell" customModule="iOS_Frontend_for_Spring" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="328" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="oZh-5a-ZIk" id="vik-eM-xb7">
+                                            <rect key="frame" x="0.0" y="0.0" width="328" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Hha-fu-Lff">
+                                                    <rect key="frame" x="15" y="0.0" width="298" height="43.5"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="DaR-Js-UNi" id="3uL-0a-Ia7"/>
+                                    <outlet property="delegate" destination="DaR-Js-UNi" id="QF7-wX-x0k"/>
+                                </connections>
                             </tableView>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="YYYY-MM-DD" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="sVy-sT-1GI">
+                                <rect key="frame" x="144" y="108.5" width="160" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PAK-hw-Tqw">
+                                <rect key="frame" x="136" y="154" width="48" height="30"/>
+                                <state key="normal" title="Search"/>
+                                <connections>
+                                    <action selector="performSearch:" destination="DaR-Js-UNi" eventType="touchUpInside" id="aOF-U6-VV1"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="0.96862745098039216" green="0.96862745098039216" blue="0.96862745098039216" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
+                            <constraint firstAttribute="leadingMargin" secondItem="RIF-Gh-9fK" secondAttribute="leading" id="5xq-gM-tVb"/>
                             <constraint firstItem="xHG-Mg-uJO" firstAttribute="leading" secondItem="Stl-4h-rMI" secondAttribute="leadingMargin" constant="-20" id="6My-Ij-ouj"/>
+                            <constraint firstItem="XX2-MB-qg5" firstAttribute="top" secondItem="RIF-Gh-9fK" secondAttribute="bottom" constant="20" id="9wt-zC-OnF"/>
+                            <constraint firstItem="PAK-hw-Tqw" firstAttribute="top" secondItem="sVy-sT-1GI" secondAttribute="bottom" constant="15.5" id="Cb5-Pw-GpG"/>
+                            <constraint firstItem="PAK-hw-Tqw" firstAttribute="centerX" secondItem="Stl-4h-rMI" secondAttribute="centerX" id="Fay-8l-PyA"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="sVy-sT-1GI" secondAttribute="trailing" id="FpG-49-NwJ"/>
                             <constraint firstAttribute="trailingMargin" secondItem="xHG-Mg-uJO" secondAttribute="trailing" constant="-20" id="Kj1-8Q-MRt"/>
-                            <constraint firstItem="xHG-Mg-uJO" firstAttribute="top" secondItem="6WE-S5-I6p" secondAttribute="bottom" id="bky-fI-6br"/>
+                            <constraint firstItem="XX2-MB-qg5" firstAttribute="leading" secondItem="RIF-Gh-9fK" secondAttribute="leading" id="Mbb-QC-Y6z"/>
+                            <constraint firstItem="Uuj-gU-TXM" firstAttribute="centerY" secondItem="RIF-Gh-9fK" secondAttribute="centerY" id="UdM-Fj-cI3"/>
+                            <constraint firstItem="sVy-sT-1GI" firstAttribute="leading" secondItem="XX2-MB-qg5" secondAttribute="trailing" constant="29" id="VBc-T8-ZCD"/>
+                            <constraint firstItem="sVy-sT-1GI" firstAttribute="centerY" secondItem="XX2-MB-qg5" secondAttribute="centerY" id="eC3-nK-kQD"/>
                             <constraint firstItem="VUe-1Z-Gvy" firstAttribute="top" secondItem="xHG-Mg-uJO" secondAttribute="bottom" id="gpG-wP-KpG"/>
+                            <constraint firstItem="RIF-Gh-9fK" firstAttribute="top" secondItem="6WE-S5-I6p" secondAttribute="bottom" constant="8" id="pBE-hx-WzR"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="Uuj-gU-TXM" secondAttribute="trailing" id="qvI-NE-hF4"/>
+                            <constraint firstItem="Uuj-gU-TXM" firstAttribute="leading" secondItem="RIF-Gh-9fK" secondAttribute="trailing" constant="8" id="r1l-0v-1vD"/>
+                            <constraint firstItem="xHG-Mg-uJO" firstAttribute="top" secondItem="PAK-hw-Tqw" secondAttribute="bottom" constant="10" id="y1Z-wV-mhX"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Búsqueda por fecha de nacimiento" id="Nov-sZ-qCZ"/>
+                    <navigationItem key="navigationItem" title="Búsqueda por fecha de nacimiento" id="Nov-sZ-qCZ">
+                        <barButtonItem key="rightBarButtonItem" systemItem="done" id="h3m-gE-q2H">
+                            <connections>
+                                <action selector="hideAdvancedSearch:" destination="DaR-Js-UNi" id="rH0-xJ-3Uv"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
+                        <outlet property="fechaFinaltextField" destination="sVy-sT-1GI" id="GTi-uH-tye"/>
+                        <outlet property="fechaInicioTextField" destination="Uuj-gU-TXM" id="Ajt-pE-f74"/>
+                        <outlet property="tableView" destination="xHG-Mg-uJO" id="yG3-H3-417"/>
                         <segue destination="ivt-dN-ht8" kind="push" identifier="showDetailsFromFechaSearch" id="aub-1B-ASR"/>
                     </connections>
                 </viewController>

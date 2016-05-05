@@ -14,7 +14,9 @@ class PlayersCell: UITableViewCell {
     @IBOutlet weak var playerName: UILabel!
     
     override func prepareForReuse() {
-        playerId.text = ""
+        if let _ = playerId.text {
+            playerId.text = ""
+        }
         playerName.text = ""
     }
     
