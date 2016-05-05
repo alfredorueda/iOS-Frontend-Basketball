@@ -352,32 +352,25 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Nombre" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="UhE-9F-QZT">
-                                <rect key="frame" x="70" y="79" width="182.5" height="30"/>
+                                <rect key="frame" x="70" y="69" width="182.5" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Canastas" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="gFe-aY-ItT">
-                                <rect key="frame" x="69.5" y="139" width="182.5" height="30"/>
+                                <rect key="frame" x="69.5" y="119" width="182.5" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                             </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Rebotes" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="KxV-x2-vEa">
-                                <rect key="frame" x="69.5" y="199" width="182.5" height="30"/>
+                                <rect key="frame" x="69.5" y="169" width="182.5" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                             </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Asistencias" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="wXA-lw-Nq8">
-                                <rect key="frame" x="69.5" y="259" width="182.5" height="30"/>
+                                <rect key="frame" x="69.5" y="219" width="182.5" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                             </textField>
-                            <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DqE-D2-1z1">
-                                <rect key="frame" x="0.0" y="299" width="320" height="216"/>
-                                <connections>
-                                    <outlet property="dataSource" destination="oMZ-55-yIu" id="HhL-ci-qrU"/>
-                                    <outlet property="delegate" destination="oMZ-55-yIu" id="N4G-3M-HuI"/>
-                                </connections>
-                            </pickerView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="glG-4o-aLy">
                                 <rect key="frame" x="6" y="23" width="58.5" height="30"/>
                                 <state key="normal" title="Cancel"/>
@@ -392,31 +385,46 @@
                                     <action selector="addPlayer:" destination="oMZ-55-yIu" eventType="touchUpInside" id="b1l-JX-9Zy"/>
                                 </connections>
                             </button>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="YYYY-MM-DD" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="rrd-mC-hDt">
+                                <rect key="frame" x="70" y="269" width="182.5" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
+                            </textField>
+                            <pickerView contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="DqE-D2-1z1">
+                                <rect key="frame" x="0.0" y="319" width="320" height="166"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="oMZ-55-yIu" id="HhL-ci-qrU"/>
+                                    <outlet property="delegate" destination="oMZ-55-yIu" id="N4G-3M-HuI"/>
+                                </connections>
+                            </pickerView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="rrd-mC-hDt" firstAttribute="width" secondItem="wXA-lw-Nq8" secondAttribute="width" id="38y-5e-bT1"/>
                             <constraint firstItem="DqE-D2-1z1" firstAttribute="centerX" secondItem="wXA-lw-Nq8" secondAttribute="centerX" id="BJ8-zT-ph8"/>
                             <constraint firstItem="glG-4o-aLy" firstAttribute="leading" secondItem="plz-by-mHJ" secondAttribute="leadingMargin" constant="-10" id="ECK-3P-2qF"/>
                             <constraint firstItem="RN3-Tr-ytc" firstAttribute="centerX" secondItem="plz-by-mHJ" secondAttribute="centerX" id="F7y-af-Ai5"/>
                             <constraint firstItem="UhE-9F-QZT" firstAttribute="width" secondItem="RN3-Tr-ytc" secondAttribute="width" id="FRY-Zh-4oJ"/>
-                            <constraint firstItem="DqE-D2-1z1" firstAttribute="top" secondItem="wXA-lw-Nq8" secondAttribute="bottom" constant="10" id="KAR-lI-7MM"/>
-                            <constraint firstItem="KxV-x2-vEa" firstAttribute="top" secondItem="gFe-aY-ItT" secondAttribute="bottom" constant="30" id="PDU-FW-ZfY"/>
+                            <constraint firstItem="KxV-x2-vEa" firstAttribute="top" secondItem="gFe-aY-ItT" secondAttribute="bottom" constant="20" id="PDU-FW-ZfY"/>
+                            <constraint firstItem="rrd-mC-hDt" firstAttribute="centerX" secondItem="wXA-lw-Nq8" secondAttribute="centerX" id="Sgc-Bd-KPZ"/>
                             <constraint firstItem="RN3-Tr-ytc" firstAttribute="top" secondItem="I4x-p1-bds" secondAttribute="bottom" constant="8" id="Teq-0l-LoL"/>
                             <constraint firstAttribute="trailingMargin" secondItem="igN-Xy-Yyc" secondAttribute="trailing" constant="-8" id="W9G-c4-wH8"/>
                             <constraint firstItem="wXA-lw-Nq8" firstAttribute="centerX" secondItem="KxV-x2-vEa" secondAttribute="centerX" id="ZIM-ZK-M4C"/>
                             <constraint firstItem="KxV-x2-vEa" firstAttribute="centerX" secondItem="gFe-aY-ItT" secondAttribute="centerX" id="aim-1k-vaU"/>
                             <constraint firstItem="gFe-aY-ItT" firstAttribute="centerX" secondItem="UhE-9F-QZT" secondAttribute="centerX" id="en8-MN-7QA"/>
                             <constraint firstItem="RN3-Tr-ytc" firstAttribute="leading" secondItem="glG-4o-aLy" secondAttribute="trailing" constant="5" id="f5X-gI-qIO"/>
-                            <constraint firstItem="gFe-aY-ItT" firstAttribute="top" secondItem="UhE-9F-QZT" secondAttribute="bottom" constant="30" id="gYf-0p-P62"/>
+                            <constraint firstItem="DqE-D2-1z1" firstAttribute="top" secondItem="rrd-mC-hDt" secondAttribute="bottom" constant="20" id="fqR-qC-lnG"/>
+                            <constraint firstItem="gFe-aY-ItT" firstAttribute="top" secondItem="UhE-9F-QZT" secondAttribute="bottom" constant="20" id="gYf-0p-P62"/>
                             <constraint firstItem="glG-4o-aLy" firstAttribute="centerY" secondItem="RN3-Tr-ytc" secondAttribute="centerY" id="izb-pS-a0j"/>
                             <constraint firstItem="igN-Xy-Yyc" firstAttribute="leading" secondItem="RN3-Tr-ytc" secondAttribute="trailing" constant="8" id="mLj-SY-ZtS"/>
                             <constraint firstItem="UhE-9F-QZT" firstAttribute="centerX" secondItem="RN3-Tr-ytc" secondAttribute="centerX" id="mit-z8-H8F"/>
                             <constraint firstItem="igN-Xy-Yyc" firstAttribute="centerY" secondItem="RN3-Tr-ytc" secondAttribute="centerY" id="mmV-pb-MhK"/>
-                            <constraint firstItem="UhE-9F-QZT" firstAttribute="top" secondItem="RN3-Tr-ytc" secondAttribute="bottom" constant="30" id="owx-VV-nJU"/>
+                            <constraint firstItem="rrd-mC-hDt" firstAttribute="top" secondItem="wXA-lw-Nq8" secondAttribute="bottom" constant="20" id="n5S-cB-YnD"/>
+                            <constraint firstItem="UhE-9F-QZT" firstAttribute="top" secondItem="RN3-Tr-ytc" secondAttribute="bottom" constant="20" id="owx-VV-nJU"/>
                             <constraint firstItem="KxV-x2-vEa" firstAttribute="width" secondItem="gFe-aY-ItT" secondAttribute="width" id="p2k-zX-1PF"/>
                             <constraint firstItem="wXA-lw-Nq8" firstAttribute="width" secondItem="KxV-x2-vEa" secondAttribute="width" id="qz7-mm-RLD"/>
                             <constraint firstItem="gFe-aY-ItT" firstAttribute="width" secondItem="UhE-9F-QZT" secondAttribute="width" id="sa7-Wu-iWb"/>
-                            <constraint firstItem="wXA-lw-Nq8" firstAttribute="top" secondItem="KxV-x2-vEa" secondAttribute="bottom" constant="30" id="uZw-Bp-4BC"/>
+                            <constraint firstItem="wXA-lw-Nq8" firstAttribute="top" secondItem="KxV-x2-vEa" secondAttribute="bottom" constant="20" id="uZw-Bp-4BC"/>
                             <constraint firstItem="DqE-D2-1z1" firstAttribute="width" secondItem="plz-by-mHJ" secondAttribute="width" id="xYY-o3-6wp"/>
                         </constraints>
                     </view>
@@ -424,6 +432,7 @@
                         <outlet property="asistenciasJugadorTextField" destination="wXA-lw-Nq8" id="fVG-aD-f8Y"/>
                         <outlet property="canastasJugadorTextField" destination="gFe-aY-ItT" id="0JL-CP-OUR"/>
                         <outlet property="doneButton" destination="igN-Xy-Yyc" id="mrC-XI-fbd"/>
+                        <outlet property="fechaNacimientoTextField" destination="rrd-mC-hDt" id="zRZ-t4-FMp"/>
                         <outlet property="nombreJugadorTextField" destination="UhE-9F-QZT" id="MYu-Bl-iqp"/>
                         <outlet property="posicionCampoPickerView" destination="DqE-D2-1z1" id="Nus-v1-r9K"/>
                         <outlet property="rebotesJugadorTextField" destination="KxV-x2-vEa" id="EHn-Zn-nYh"/>

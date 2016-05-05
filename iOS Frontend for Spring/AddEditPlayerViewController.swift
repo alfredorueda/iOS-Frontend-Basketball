@@ -22,6 +22,7 @@ class AddEditPlayerViewController: UIViewController, UIPickerViewDelegate, UIPic
     @IBOutlet weak var posicionCampoPickerView: UIPickerView!
     @IBOutlet weak var doneButton: UIButton!
     @IBOutlet weak var titleLabel: UILabel!
+    @IBOutlet weak var fechaNacimientoTextField: UITextField!
     
     var player: Player?
     var posicionesCampo = [String]()
@@ -41,6 +42,7 @@ class AddEditPlayerViewController: UIViewController, UIPickerViewDelegate, UIPic
             canastasJugadorTextField.text = String(player!.baskets!)
             rebotesJugadorTextField.text = String(player!.rebotes!)
             asistenciasJugadorTextField.text = String(player!.asistencias!)
+            fechaNacimientoTextField.text = player?.fechaNacimiento!
             for (index, posicion) in posicionesCampo.enumerate() {
                 if posicion == player!.posicionCampo! {
                     posicionCampoPickerView.selectRow(index, inComponent: 0, animated: true)
@@ -63,6 +65,7 @@ class AddEditPlayerViewController: UIViewController, UIPickerViewDelegate, UIPic
         var canastasJugador = 0
         var rebotesJugador = 0
         var asistenciasJugador = 0
+        var fechaNacimiento = ""
         
         if canastasJugadorTextField.text! != "" {
             canastasJugador = Int(canastasJugadorTextField.text!)!
@@ -79,6 +82,10 @@ class AddEditPlayerViewController: UIViewController, UIPickerViewDelegate, UIPic
         let indexSelected = posicionCampoPickerView.selectedRowInComponent(0)
         let posicionCampo = posicionesCampo[indexSelected]
         
+        if fechaNacimientoTextField.text != "" {
+            fechaNacimiento = fechaNacimientoTextField.text!
+        }
+        
         
         
         let headersRequest = ["Authorization" : "Bearer \((defaults.objectForKey("accessToken") as! String))",
@@ -89,7 +96,8 @@ class AddEditPlayerViewController: UIViewController, UIPickerViewDelegate, UIPic
                             "baskets"       : canastasJugador,
                             "rebotes"       : rebotesJugador,
                             "asistencias"   : asistenciasJugador,
-                            "posicionCampo" : posicionCampo]
+                            "posicionCampo" : posicionCampo,
+                            "fechaNacimiento" : fechaNacimiento]
             
             Alamofire.request(.POST, "http://\(Helper().serverIP)/api/players", parameters: bodyHTTP as? [String: AnyObject], headers: headersRequest, encoding: .JSON).responseJSON{ response in
                 switch response.result {
@@ -106,6 +114,7 @@ class AddEditPlayerViewController: UIViewController, UIPickerViewDelegate, UIPic
                             "rebotes"       : rebotesJugador,
                             "asistencias"   : asistenciasJugador,
                             "posicionCampo" : posicionCampo,
+                            "fechaNacimiento" : fechaNacimiento,
                             "id"            : player!.id!]
             
             Alamofire.request(.PUT, "http://\(Helper().serverIP)/api/players", parameters: bodyHTTP as? [String: AnyObject], headers: headersRequest, encoding: .JSON).responseJSON{ response in
