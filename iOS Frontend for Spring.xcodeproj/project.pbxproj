@@ -18,6 +18,7 @@
 		47AD3DD81CC920C900D95F8E /* AddEditPlayerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47AD3DD71CC920C900D95F8E /* AddEditPlayerViewController.swift */; };
 		47B037611CD10745009479D2 /* BusquedaPorNombreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47B037601CD10745009479D2 /* BusquedaPorNombreViewController.swift */; };
 		47B037631CD10CCD009479D2 /* BusquedaPorCanastasViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47B037621CD10CCD009479D2 /* BusquedaPorCanastasViewController.swift */; };
+		47BD77D41CE381CE008F6B33 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47BD77D31CE381CE008F6B33 /* RegisterViewController.swift */; };
 		47C7468D1C9B170A00E978DD /* UserDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47C7468C1C9B170A00E978DD /* UserDetailsViewController.swift */; };
 		47C7468F1C9B175800E978DD /* PlayerListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47C7468E1C9B175800E978DD /* PlayerListViewController.swift */; };
 		47C746911C9B17BE00E978DD /* PlayerDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47C746901C9B17BE00E978DD /* PlayerDetailsViewController.swift */; };
@@ -38,6 +39,7 @@
 		47AD3DD71CC920C900D95F8E /* AddEditPlayerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddEditPlayerViewController.swift; sourceTree = "<group>"; };
 		47B037601CD10745009479D2 /* BusquedaPorNombreViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BusquedaPorNombreViewController.swift; sourceTree = "<group>"; };
 		47B037621CD10CCD009479D2 /* BusquedaPorCanastasViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BusquedaPorCanastasViewController.swift; sourceTree = "<group>"; };
+		47BD77D31CE381CE008F6B33 /* RegisterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
 		47C7468C1C9B170A00E978DD /* UserDetailsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserDetailsViewController.swift; sourceTree = "<group>"; };
 		47C7468E1C9B175800E978DD /* PlayerListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlayerListViewController.swift; sourceTree = "<group>"; };
 		47C746901C9B17BE00E978DD /* PlayerDetailsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlayerDetailsViewController.swift; sourceTree = "<group>"; };
@@ -94,6 +96,7 @@
 				4751F7261CB6DCA7007C9A9C /* Models */,
 				4751F7271CB6DCAF007C9A9C /* Cells */,
 				4750CB2F1C9B13D600ADE58D /* LoginViewController.swift */,
+				47BD77D31CE381CE008F6B33 /* RegisterViewController.swift */,
 				47C7468C1C9B170A00E978DD /* UserDetailsViewController.swift */,
 				47C7468E1C9B175800E978DD /* PlayerListViewController.swift */,
 				47AD3DD71CC920C900D95F8E /* AddEditPlayerViewController.swift */,
@@ -267,6 +270,7 @@
 				47D6E79B1CCFD7DF00555160 /* Helper.swift in Sources */,
 				47AD3DD81CC920C900D95F8E /* AddEditPlayerViewController.swift in Sources */,
 				4751F7291CB6DCC2007C9A9C /* Player.swift in Sources */,
+				47BD77D41CE381CE008F6B33 /* RegisterViewController.swift in Sources */,
 				472C43841CDB97F100646AEF /* BusquedaPorFechaViewController.swift in Sources */,
 				47C746911C9B17BE00E978DD /* PlayerDetailsViewController.swift in Sources */,
 			);
