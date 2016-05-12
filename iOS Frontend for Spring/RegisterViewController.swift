@@ -13,8 +13,6 @@ class RegisterViewController: UIViewController {
 
     @IBOutlet weak var userNameTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
-    @IBOutlet weak var nameTextField: UITextField!
-    @IBOutlet weak var lastNameTextField: UITextField!
     @IBOutlet weak var emailTextField: UITextField!
     
     override func viewDidLoad() {
@@ -28,8 +26,7 @@ class RegisterViewController: UIViewController {
     @IBAction func registerUser(sender: UIBarButtonItem) {
         let bodyHTTP = ["login"         : "\(userNameTextField.text!)",
                         "password"      : "\(passwordTextField.text!)",
-                        "firstName"     : "\(nameTextField.text!)",
-                        "lastName"      : "\(lastNameTextField.text!)",
+                        "langKey"      : "en",
                         "email"         : "\(emailTextField.text!)"]
         
         let headersRequest = ["Content-Type" : "application/json"]

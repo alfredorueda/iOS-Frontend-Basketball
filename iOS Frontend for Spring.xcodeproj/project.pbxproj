@@ -92,6 +92,7 @@
 		4750CB2C1C9B13D600ADE58D /* iOS Frontend for Spring */ = {
 			isa = PBXGroup;
 			children = (
+				47D6E79A1CCFD7DF00555160 /* Helper.swift */,
 				4750CB2D1C9B13D600ADE58D /* AppDelegate.swift */,
 				4751F7261CB6DCA7007C9A9C /* Models */,
 				4751F7271CB6DCAF007C9A9C /* Cells */,
@@ -108,7 +109,6 @@
 				4750CB341C9B13D600ADE58D /* Assets.xcassets */,
 				4750CB361C9B13D600ADE58D /* LaunchScreen.storyboard */,
 				4750CB391C9B13D600ADE58D /* Info.plist */,
-				47D6E79A1CCFD7DF00555160 /* Helper.swift */,
 			);
 			path = "iOS Frontend for Spring";
 			sourceTree = "<group>";
