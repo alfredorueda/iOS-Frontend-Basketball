@@ -117,7 +117,7 @@
                                 <constraints>
                                     <constraint firstAttribute="height" constant="128" id="YQf-3e-ZZS"/>
                                 </constraints>
-                                <string key="text">El nombre de usuario ha de ser todo en minúsculas. Si el ViewController no desaparece, es que has introducido algo mal y el servidor no ha enviado el email.</string>
+                                <string key="text">El nombre de usuario ha de ser todo en minúsculas. Atentos a la consola de IntelliJ, si el mail se ha enviado correctamente, allí se ve reflejado, que la API no devuelve nada si ha ido OK.</string>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>

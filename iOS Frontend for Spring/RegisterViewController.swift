@@ -33,8 +33,7 @@ class RegisterViewController: UIViewController {
         
         Alamofire.request(.POST, "http://\(Helper().serverIP)/api/register", parameters: bodyHTTP, headers: headersRequest, encoding: .JSON).responseJSON{ response in
             switch response.result {
-            case .Success (let JSON):
-                print(JSON)
+            case .Success:
                 self.dismissViewControllerAnimated(true, completion: nil)
             case .Failure (let error):
                 print("Request failed with error: \(error)")
